@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.employee.EmployeeApplication.entity.Address;
 import com.employee.EmployeeApplication.entity.Employee;
 import com.employee.EmployeeApplication.repository.EmployeeRepository;
 
@@ -35,6 +36,13 @@ public class EmployeeService {
 
 	public void createEmployee(Employee employee) {
 //		employeeList.add(employee);
+		ArrayList<Address> addressArrayList = new ArrayList<>();
+
+		for (Address address : employee.getAddresses()) {
+			addressArrayList.add(new Address(address.getLine1(), address.getLine2(), address.getZipCode(),
+					address.getCity(), address.getState(), address.getCountry(), employee));
+		}
+		employee.setAddresses(addressArrayList);
 		employeeRepository.save(employee);
 	}
 
