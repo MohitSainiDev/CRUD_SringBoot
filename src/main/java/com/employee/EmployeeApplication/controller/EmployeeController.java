@@ -18,41 +18,41 @@ import com.employee.EmployeeApplication.service.EmployeeService;
 public class EmployeeController {
 
 	@Autowired
-	EmployeeService empoyeeService;
+	EmployeeService employeeService;
 
 	@GetMapping("/employees")
 	public List<Employee> findAllEmployees() {
 
-		return empoyeeService.getAllEmployees();
+		return employeeService.getAllEmployees();
 
 	}
 	
 	@GetMapping("/employees/{id}")
 	public Employee findAnEmployees(@PathVariable int id) {
 
-		return empoyeeService.getAnEmpoyee(id);
+		return employeeService.getAnEmpoyee(id);
 
 	}
 
 	@PostMapping("/employees")
 	public void CreateAnEmployees(@RequestBody Employee emp) {
 
-		empoyeeService.createEmployee(emp);
+		employeeService.createEmployee(emp);
 
 	}
 
 	@PutMapping("/employees")
 	public void UpdateEmployees(@RequestBody Employee emp) {
 
-		empoyeeService.updateEmployee(emp);
+		employeeService.updateEmployee(emp);
 
 	}
 
 	@DeleteMapping("/employees/{id}")
 	public List<Employee> DeleteEmployees(@PathVariable int id) {
 
-		empoyeeService.deleteEmployee(id);
-		return empoyeeService.getAllEmployees();
+		employeeService.deleteEmployee(id);
+		return employeeService.getAllEmployees();
 
 	}
 

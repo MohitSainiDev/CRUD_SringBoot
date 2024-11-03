@@ -1,9 +1,21 @@
 package com.employee.EmployeeApplication.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Employee {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int empoyeeId;
 	String employeeName;
 	String employeeCity;
+
+	public Employee() {
+		super();
+	}
 
 	public Employee(int empoyeeId, String employeeName, String employeeCity) {
 		super();
